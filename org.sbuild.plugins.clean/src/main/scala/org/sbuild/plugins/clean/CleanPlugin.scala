@@ -13,9 +13,9 @@ class CleanPlugin(implicit project: Project) extends Plugin[Clean] {
   def applyToProject(instances: Seq[(String, Clean)]): Unit = instances.foreach {
     case (name, clean) =>
       val cleanTarget = Target("phony:" + clean.targetName) dependsOn clean.dependsOn exec {
-        clean.dirs.foreach { dir => dir.deleteRecursive}
+        clean.dirs.distinct.foreach { dir => dir.deleteRecursive }
       }
-      if(clean.evictCache) cleanTarget.evictCache
+      if (clean.evictCache) cleanTarget.evictCache
   }
 
 }
