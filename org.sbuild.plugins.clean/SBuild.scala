@@ -4,14 +4,14 @@ import de.tototec.sbuild.ant.tasks._
 
 @version("0.7.1")
 @classpath(
-  "mvn:org.sbuild:org.sbuild.plugins.sbuildplugin:0.2.2",
+  "mvn:org.sbuild:org.sbuild.plugins.sbuildplugin:0.3.0",
   "mvn:org.apache.ant:ant:1.8.4",
   "mvn:org.sbuild:org.sbuild.plugins.mavendeploy:0.1.0"
 )
 class SBuild(implicit _project: Project) {
 
   val namespace = "org.sbuild.plugins.clean"
-  val version = "0.0.9000"
+  val version = "0.1.0"
   val url = "https://github.com/SBuild-org/sbuild-clean-plugin"
   val sourcesJar = s"target/${namespace}-${version}-sources.jar"
   val sourcesDir = "src/main/scala"
@@ -20,7 +20,7 @@ class SBuild(implicit _project: Project) {
 
   import org.sbuild.plugins.sbuildplugin._
   Plugin[SBuildPlugin] configure (_.copy(
-    sbuildVersion = "0.7.1",
+    sbuildVersion = SBuildVersion.v0_7_1,
     pluginClass = s"${namespace}.Clean",
     pluginVersion = version
   ))
