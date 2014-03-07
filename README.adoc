@@ -1,10 +1,18 @@
 = SBuild Clean Plugin
+Tobias Roeser
+2014-02-22
+:sbuildversion: 0.7.1
+:pluginversion: 0.0.9000
+:toc:
+:toc-placement: preamble
+:toclevels: 1
 
 This SBuild plugin provides a customizable Clean target
 
-== Installation
+== Download
 
-There is currently no release of this plugin. You need to build it by yourself.
+SBuild Clean Project Plugin can be downloaded from http://repo1.maven.org/maven2/org/sbuild/org.sbuild.plugins.clean[Maven Central].
+
 
 == Building from Source
 
@@ -18,3 +26,22 @@ sbuild jar
 
 You will find the built jar in the directory `org.sbuild.plugins.clean/target`.
 
+== Requirements
+
+This plugin requires at least SBuild {sbuildversion}.
+
+== Configuration
+
+All configurable properties are documented via ScalaDoc. See file link:org.sbuild.plugins.clean/src/main/scala/org/sbuild/plugins/clean/Clean.scala[Clean.scala].
+
+== Targets
+
+In it's default configuration, this plugin provides a `clean` target, will delete the `target` directory and also evicts the SBuild target cache for this project.
+
+A names configuration will provide a `clean-${name}` target and will delete the `${name}` directory without evicting the target cache.
+
+== Changelog
+
+=== SBuild Clean Plugin 0.1.0 - 2014-03-07
+
+* Initial release
